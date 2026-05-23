@@ -1,10 +1,14 @@
-{% for post in blog_list %}
-    <ul>
-        <li>
-            <h2>{{ post.title }}</h2>
-            <p><strong>autor:</strong> {{ post.author.username }}</p>
-            <p><strong>created at:</strong> {{ post.created_at }}</p>
-        </li>
-    </ul>
+{% extends '_base.html' %}
 
-{% endfor %}
+{% block content %}
+    {% for post in blog_list %}
+        <ul>
+            <li>
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                <p><strong>autor:</strong> {{ post.author.username }}</p>
+                <p><strong>created at:</strong> {{ post.created_at }}</p>
+            </li>
+        </ul>
+
+    {% endfor %}
+{% endblock content %}
