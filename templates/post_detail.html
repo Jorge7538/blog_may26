@@ -5,5 +5,8 @@
     <p><strong>author:</strong> {{ blog.author.username }}</p>
     <p><strong>created at:</strong> {{ blog.created_at }}</p>
     <p><strong>updated at:</strong> {{ blog.updated_at }}</p>
+    <div>
     <p>{{ blog.content }}</p>
+    </div>
+    <a href="{% url 'post_update' blog.pk %}">Editar</a>
 {% endblock content %}
