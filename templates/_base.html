@@ -1,22 +1,36 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    {% block extra_head %}{% endblock %}
 </head>
 <body>
     <header>
         <a href="{% url 'post_list' %}"><h1>My Blog</h1></a>
         <nav>
-            <ul>
-                <a href="{% url 'post_create' %}">Nueva publiaccion</a>
+            <ul class="nav-links">
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'post_create' %}" class="btn-nav">Nueva publicación</a></li>
+                    <li>
+                        <form action="{% url 'logout' %}" method="POST" style="display: inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn-nav btn-logout">Cerrar sesión</button>
+                        </form>
+                    </li>
+                {% endif %}
             </ul>
+        </nav>
     </header>
+
     <main>
         {% block content %}
         {% endblock %}
     </main>
+
     <footer>
         <p>&copy; 2023 Blog</p>
     </footer>

@@ -16,8 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('newspapers.urls')),
+   path('admin/', admin.site.urls),
+    
+    # 1. El Login se queda con la ruta vacía ('')
+    path('', auth_views.LoginView.as_view(template_name='registration/login.html', redirect_authenticated_user=True), name='login'),
+    
+    # 2. CAMBIA ESTO: Tu blog ahora vivirá en 'inicio/'
+    path('inicio/', include('newspapers.urls')),
+    
+    path('accounts/', include('django.contrib.auth.urls')),
 ]

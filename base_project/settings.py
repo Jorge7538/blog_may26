@@ -116,8 +116,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
-
+import os
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Le dice a Django la ruta oficial para iniciar sesión
+
+
+# Redirige a la pantalla principal (lista de posts) al iniciar sesión
+LOGIN_REDIRECT_URL = 'post_list'
+
+# Redirige a la pantalla principal si el usuario decide cerrar sesión
+LOGOUT_REDIRECT_URL = 'login'

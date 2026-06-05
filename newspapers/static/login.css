@@ -1,0 +1,80 @@
+/* static/css/login.css */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7f6;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 350px;
+}
+
+.login-container h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Estilizando el formulario que genera Django */
+.login-container form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.login-container label {
+    margin-bottom: 5px;
+    color: #555;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #27ae60;
+    outline: none;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.btn-submit:hover {
+    background-color: #219653;
+}
+
+.error-msg {
+    color: #e74c3c;
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 15px;
+}

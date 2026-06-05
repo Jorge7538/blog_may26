@@ -1,8 +1,13 @@
 from django.shortcuts import render
 from .models import blog
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
-
+from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+class PostListView(LoginRequiredMixin, ListView):
+    model = blog
+    template_name = 'post_list.html'
 
 class PostListView(ListView):
     model = blog
@@ -26,3 +31,6 @@ class PostDeleteView(DeleteView):
     model = blog
     template_name = 'post-delete.html'
     success_url = reverse_lazy('post_list')
+
+class PostLogoutView(LogoutView):
+    template_name = 'Logout.html'
